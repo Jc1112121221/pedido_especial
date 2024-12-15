@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedido Especial</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+      overflow: hidden;
+    }
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 10;
+    }
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 18px;
+      color: white;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .no-btn {
+      background-color: #FF0000;
+    }
+    .no-btn:hover {
+      background-color: #b30000;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      clip-path: polygon(50% 0%, 100% 30%, 100% 70%, 50% 100%, 0% 70%, 0% 30%);
+      animation: float 5s infinite ease-in-out;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-600px) scale(0.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Corações animados -->
+  <script>
+    // Adiciona corações animados no fundo
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.animationDuration = `${Math.random() * 2 + 3}s`; // Variação de duração
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000); // Remove o coração após 5 segundos
+    }, 300);
+  </script>
+
+  <div class="container">
+    <h1>Lais, aqui é João Carlos, Você aceita ficar comigo para sempre?</h1>
+    <img src="https://i.postimg.cc/gjwFGj77/Princesa-e-eu.jpg" alt="Nossa Foto"> <!-- Substitua pela URL da sua foto -->
+    <p>É só escolher "Sim" ou "Não"... Mas cuidado com sua resposta!</p>
+    
+    <button id="yesButton">Sim</button>
+    <button id="noButton" class="no-btn">Não</button>
+  </div>
+
+  <script>
+    // Botão "Sim"
+    document.getElementById('yesButton').addEventListener('click', function () {
+      alert('Eu sabia que você diria SIM! Minha Lais❤️');
+    });
+
+    // Botão "Não"
+    document.getElementById('noButton').addEventListener('click', function () {
+      alert('Não é uma opção válida! Tente novamente. 😉');
+      const noButton = document.getElementById('noButton');
+      noButton.textContent = "Sim";
+      noButton.classList.remove('no-btn');
+    });
+  </script>
+</body>
+</html>
